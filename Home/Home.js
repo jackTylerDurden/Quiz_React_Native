@@ -27,22 +27,19 @@ const Home = ({route, navigation}) =>{
     navigation.navigate('Quiz')
   }
 
-  saveDataToStorage = (key,value) => {
-    console.log('key--->>>',key);
-    console.log('value--->>>',value);
+  saveDataToStorage = (key,value) => {    
     try{
       AsyncStorage.setItem(key,value).then(() =>{
-        console.log('data stored')
+        console.log('INFO STORED')
       });
     }catch(error){
-      console.log('error------->>>',error)
+      console.log(error)
     }
   }
 
   getUserInfo = () => {
     try{
-      AsyncStorage.getItem('userDetails',(error,result)=>{
-        console.log('result----->>>',result);
+      AsyncStorage.getItem('userDetails',(error,result)=>{        
         let userInfo = JSON.parse(result);
         setFirstName(userInfo.firstName);
         setLastName(userInfo.lastName);
@@ -51,7 +48,7 @@ const Home = ({route, navigation}) =>{
       });    
       
     }catch(error){
-      console.log('error------->>>',error)
+      console.log(error)
     }
   }
 
@@ -78,17 +75,14 @@ const Home = ({route, navigation}) =>{
   
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
-      if(isFocused){
-        console.log('route---->>>',route);
-        if(route.params){ //save userinfo and score 
-          console.log('route.params.currentScore---->>>',route.params.currentScore);
+      if(isFocused){        
+        if(route.params){ //save userinfo and score           
           let userInfo = {};
           userInfo.firstName = firstName;
           userInfo.lastName = lastName;
           userInfo.nickName = nickName;
           userInfo.age = age;
-          const userInfoJSON = JSON.stringify(userInfo);
-          console.log('userInfoJSON ---->>>',userInfoJSON);
+          const userInfoJSON = JSON.stringify(userInfo);          
           setScore(route.params.currentScore);
           saveDataToStorage('userDetails',userInfoJSON);
           writeScoreToFile(route.params.currentScore)

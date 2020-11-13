@@ -7,7 +7,7 @@
  */
 
 import React, { useState,useEffect } from 'react';
-import {SafeAreaView,View,TouchableHighlight} from 'react-native';
+import {View,TouchableHighlight} from 'react-native';
 import {styles} from './Styles';
 import {Divider,RadioButton,FAB,Text } from 'react-native-paper';
 
