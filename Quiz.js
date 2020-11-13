@@ -12,7 +12,7 @@ import {Divider,RadioButton,FAB,Text } from 'react-native-paper';
 
 
 let score = 0;
-const questionsList = require('./questions.json');
+const questionsList = require('./assets/questions.json');
 
 const Quiz = ({navigation}) =>{        
     const [currentQuestionIndex,setCurrentQuestionIndex] = useState(0);
@@ -52,7 +52,7 @@ const Quiz = ({navigation}) =>{
         <Text>{"\n"}</Text>
         <RadioButton.Group onValueChange={(value) => setAnswerIndex(value)}  value={answerIndex}>
             {currentQuestion.options.map((value,index)=>{                
-                return <RadioButton.Item style={styles.questionTextStyle} key={index} label={value.answerText} value={value.index} />
+                return <RadioButton.Item key={index} label={value.answerText} value={value.index} />
             })}
         </RadioButton.Group>        
         </View>        
