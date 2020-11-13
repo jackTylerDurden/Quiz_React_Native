@@ -65,9 +65,11 @@ const Home = ({route, navigation}) =>{
 
   getScore = () =>{ 
     RNFS.exists(path).then((result)=>{
-      RNFS.readFile(path,'utf8').then(result=>{
-        setScore(result);
-      });    
+      if(result){
+        RNFS.readFile(path,'utf8').then(result=>{
+          setScore(result);
+        });    
+      }      
     });           
   }
   
