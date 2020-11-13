@@ -7,7 +7,8 @@
  */
 
 import React, {useState,useEffect} from 'react'; 
-import {SafeAreaView,ScrollView,View,TouchableHighlight,StyleSheet} from 'react-native';
+import {SafeAreaView,ScrollView,View,TouchableHighlight} from 'react-native';
+import {styles} from './Styles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { TextInput,Appbar,Divider,Button,Text,} from 'react-native-paper';
 import {useIsFocused} from '@react-navigation/native';
@@ -130,27 +131,4 @@ const Home = ({route, navigation}) =>{
     </>
   );
 }
-const styles = StyleSheet.create({
-  scoreText:{
-    fontSize:30,
-    fontWeight:"bold"
-  },
-  appBar:{
-    backgroundColor: '#2196F3'
-  },
-  container: {    
-    padding: 20,     
-  },
-  button: {    
-    alignItems: 'center',
-    backgroundColor: '#2196F3',   
-  },
-  buttonText: {
-    textAlign: 'center',
-    padding: 20,    
-    fontSize:40,
-    color: 'white',
-    fontWeight:"bold"
-  }
-});
 export default Home;

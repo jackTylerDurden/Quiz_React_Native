@@ -10,8 +10,8 @@ import React from 'react';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { NavigationContainer,} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Home from './Home';
-import Quiz from './Quiz';
+import Home from './Home/Home';
+import Quiz from './Quiz/Quiz';
 
 const App = () =>{
 	const Stack = createStackNavigator();
