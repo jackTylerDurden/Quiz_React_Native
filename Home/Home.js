@@ -40,11 +40,23 @@ const Home = ({route, navigation}) =>{
   getUserInfo = () => {
     try{
       AsyncStorage.getItem('userDetails',(error,result)=>{        
-        let userInfo = JSON.parse(result);
-        setFirstName(userInfo.firstName);
-        setLastName(userInfo.lastName);
-        setNickName(userInfo.nickName);
-        setAge(userInfo.age);
+        if(result!= null){
+          let userInfo = JSON.parse(result);        
+          if(userInfo != null){
+            if(userInfo.firstName != null){
+              setFirstName(userInfo.firstName);
+            }
+            if(userInfo.lastName != null){
+              setLastName(userInfo.lastName);
+            }
+            if(userInfo.nickName != null){
+              setNickName(userInfo.nickName);
+            }
+            if(userInfo.age != null){
+              setAge(userInfo.age);
+            }                                    
+          }          
+        }       
       });    
       
     }catch(error){
